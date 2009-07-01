@@ -28,5 +28,7 @@ if (class_exists('twitterKeywords')) {
 
 You can edit your style in order to fit better with your blog design
 == Changelog ==
-v1.0
+v 0.1
 - Initial Release
+v 0.2
+- Adding language for tweets and improving some html texts
