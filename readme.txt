@@ -20,15 +20,12 @@ Just Download the plugin and activate it in administration->plugins->Twitter Key
 Configure its values in administration->settings->Twitter Keywords
 
 Add the following in the sidebar.php of your template
-//Twitter Keyword Plugin code
-if (class_exists('twitterKeywords')) {
-	$twitter_keywords=new twitterKeywords();
-	$twitter_keywords->readXMLTwitterSearch();
-}
+//Twitter Keyword Plugin code\r\n
+if (function_exists('callTwitterKeywords')) {callTwitterKeywords();}
+
+Or drag and drop in the widget administration.
 
 You can edit your style in order to fit better with your blog design
 == Changelog ==
-v 0.1
+v1.0
 - Initial Release
-v 0.2
-- Adding language for tweets and improving some html texts

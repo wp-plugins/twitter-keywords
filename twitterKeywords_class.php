@@ -129,10 +129,12 @@ class twitterKeywords
 				$twitter_user=$name_array[0];
 			}
 			$html.='<a href="http://twitter.com/'.$twitter_user.'" rel="nofollow" class="twitter_author">@'.$twitter_user.'</a>';
-			$html.= $item -> content;	
+			$html.= $item -> content;
+			$html.="</li>";	
 		}
-		$html.='<div id="twitter-keyword-footer"><p><small>WP plugin by <a href="http://www.josellinares.com" title="Marketing Digital Barcelona" target="_blank">Marketing Digital</a></small></p></div>';
-		
+		$html.='</ul>';
+		$html.='<div id="twitter-keyword-footer"><p style="text-align:right"><small>WP plugin by <a href="http://www.josellinares.com" title="Marketing Digital Barcelona" target="_blank">Marketing Digital</a></small></p></div>';
+		$html.='</div>';//fin twitter keywords div
 		//print the output;
 		echo $html;
 	}
@@ -280,4 +282,26 @@ function checkSelected($lang,$existing_lang)
 	else
 		return '';
 }
+
+//function to initailize the class. Called from sidebar.php
+function callTwitterKeywords()
+{
+	$twitter_keywords=new twitterKeywords();
+	$twitter_keywords->readXMLTwitterSearch();
+}
+
+
+//Widgetizing the plugin functions
+function setTwitterKeywordsPlugin()
+{
+  register_sidebar_widget(__('Twitter Keywords'), 'callTwitterKeywords'); 
+  register_widget_control(__('Twitter Keywords'), 'TwitterKeywordsControl', 200, 200 );
+}
+add_action("plugins_loaded", "setTwitterKeywordsPlugin");
+
+function TwitterKeywordsControl()
+{
+  echo '<p><label for="myHelloWorld-WidgetTitle">To configure options go to "Settings > Twitter Keywords" in this admin panel</label></p>';
+}
+//end widgetizing functions;
 ?>
