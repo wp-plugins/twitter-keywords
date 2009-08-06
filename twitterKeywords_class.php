@@ -120,17 +120,24 @@ class twitterKeywords
 		$html='<div id="twitter-keywords">';
 		$html.='<h2>'.$this->widgetText.' '.$this->keyword.'</h2>';
 		$html.='<ul>';
-		foreach($xmlObjTwitter->entry  as $item )
-		{	
-			$html.="<li>";
-			foreach($item -> author as $author)
-			{
-				$name_array=explode("(",$author->name);
-				$twitter_user=$name_array[0];
+		if(is_array($xmlObjTwitter))
+		{
+			foreach($xmlObjTwitter->entry  as $item )
+			{	
+				$html.="<li>";
+				foreach($item -> author as $author)
+				{
+					$name_array=explode("(",$author->name);
+					$twitter_user=$name_array[0];
+				}
+				$html.='<a href="http://twitter.com/'.$twitter_user.'" rel="nofollow" class="twitter_author">@'.$twitter_user.'</a>';
+				$html.= $item -> content;
+				$html.="</li>";	
 			}
-			$html.='<a href="http://twitter.com/'.$twitter_user.'" rel="nofollow" class="twitter_author">@'.$twitter_user.'</a>';
-			$html.= $item -> content;
-			$html.="</li>";	
+		}
+		else
+		{
+			$html.="<li>Ooops... it seems we can't show anything</li>";	
 		}
 		$html.='</ul>';
 		$html.='<div id="twitter-keyword-footer"><p style="text-align:right"><small>WP plugin by <a href="http://www.josellinares.com" title="Marketing Digital Barcelona" target="_blank">Marketing Digital</a></small></p></div>';
