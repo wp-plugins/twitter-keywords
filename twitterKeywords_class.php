@@ -120,7 +120,7 @@ class twitterKeywords
 		$html='<div id="twitter-keywords">';
 		$html.='<h2>'.$this->widgetText.' '.$this->keyword.'</h2>';
 		$html.='<ul>';
-		if(is_array($xmlObjTwitter))
+		if($xmlObjTwitter)
 		{
 			foreach($xmlObjTwitter->entry  as $item )
 			{	
