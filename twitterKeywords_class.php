@@ -137,10 +137,10 @@ class twitterKeywords
 		}
 		else
 		{
-			$html.="<li>Ooops... it seems we can't show anything</li>";	
+			$html.="<li>That's embarrassing. It seems there was an error.</li>";	
 		}
 		$html.='</ul>';
-		$html.='<div id="twitter-keyword-footer"><p style="text-align:right"><small>WP plugin by <a href="http://www.josellinares.com" title="Marketing Digital Barcelona" target="_blank">Marketing Digital</a></small></p></div>';
+		$html.='<div id="twitter-keyword-footer"><p style="text-align:right"><small>WP plugin by <a href="http://www.josellinares.com/tag/marketing-online/" title="Marketing Online Madrid" target="_blank">Marketing Online</a></small></p></div>';
 		$html.='</div>';//fin twitter keywords div
 		//print the output;
 		echo $html;
